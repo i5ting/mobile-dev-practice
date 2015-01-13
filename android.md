@@ -33,3 +33,7 @@ http://airdroid.com/en/
 HoRNDIS: USB tethering driver for Mac OS X
 
 http://joshuawise.com/horndis
+
+
+## Terminal
+
