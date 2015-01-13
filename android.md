@@ -35,5 +35,34 @@ HoRNDIS: USB tethering driver for Mac OS X
 http://joshuawise.com/horndis
 
 
-## Terminal
+## R
+
+R是resource的意思，比如
+
+### 获得应用名称
+
+```
+R.string.app_name
+```
+
+### 变更布局
+
+```
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.first_layout);
+}
+```
+
+
+
+
+## Question
+
+###  Android开发中的Activity和ActionBarActivity有什么区别
+
+http://zhidao.baidu.com/link?url=zAKtzY_Joi6yXB0sxVHYdZEPdhTVeZLq8E5rymhkBG0zSbWZZoTcJ_PiRHCCzaXlIJfg_910GvIN47k_XTbngkijzzap71jj60x3cJE3T8y
+
+答案：AndroidBarActivity是支持库里的类可以兼容2.x版本 activity提供的actionbar只有在3.0以上才可以用
+
 
