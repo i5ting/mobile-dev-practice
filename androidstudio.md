@@ -21,3 +21,6 @@ adb --help
 
 ![](image/androidstudio/source.png)
 
+### 快捷键
+
+- `ctrl + l` 清空已有内容
