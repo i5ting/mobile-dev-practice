@@ -4,9 +4,46 @@
 
 下载android studio
 
-下载groovy，配置环境变量
+## 配置环境变量
 
-下载gradle，配置环境变量
+
+```
+export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export PATH=$PATH:$JAVA_HOME/bin
+export classpath=.:$JAVA_HOME/lib
+
+
+export GROOVY_HOME=/Users/sang/bin/groovy-2.4.0-rc-2
+export PATH=$PATH:$GROOVY_HOME/bin
+
+export GRADLE_HOME=/Users/sang/bin/gradle-2.2.1
+export PATH=$PATH:$GRADLE_HOME/bin
+
+
+export ANDROID_SDK_HOME=/Users/sang/Library/Android/sdk
+
+export PATH=$PATH:$ANDROID_SDK_HOME/tools
+export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
+export PATH=$PATH:$ANDROID_SDK_HOME/build-tools/21.1.2
+```
+
+### 安装Gradle
+
+
+	Mac上会默认下载到 /Users/<用户名>/.gradle/wrapper/dists 目录
+	Win平台会默认下载到 C:\Documents and Settings\<用户名>.gradle\wrapper\dists 目录
+	
+你会看到这个目录下有个 gradle-x.xx-all 的文件夹, 如果下载实在太慢，但是又不想翻墙的话，可以自己手动到Gradle官网下载对应的版本，然后将下载的.zip文件(也可以解压)复制到上述的gradle-x.xx-all 文件夹下，不过还是建议让它直接下载的好。
+
+如果不这么处理，会报错哦，主要是gradle-wrapper.propertie
+
+```
+mkdir -p ~/.gradle/wrapper/dists
+cp -rf $GRADLE_HOME/* ~/.gradle/wrapper/dists
+```
+
+臆测，需测试。
+
 
 ## 安装驱动
 
@@ -53,8 +90,6 @@ protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.first_layout);
 }
 ```
-
-
 
 
 ## Question
