@@ -6,3 +6,7 @@
 ## db or  orm 
 
 - http://greendao-orm.com/
+
+## intellij-community source
+
+- https://github.com/JetBrains/intellij-community

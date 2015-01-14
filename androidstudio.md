@@ -1,3 +1,23 @@
+Google发布了Android Studio 1.0，并建议开发者离开Eclipse。
+
+Android Studio是在Google I/O
+2013大会上首次对外宣布的，从那时开始就一直处于开发之中，已经发布了10来个中间版本。现在不仅到达了GA版本，Google的Android产品经理Jamal Eason在博客中还称其为“官方IDE”，也显示了这款产品对于正在远离基于Eclipse的工具的Android团队而言，其重要性。Google现在强烈建议开发者使用Android Studio，并将其项目迁移到该IDEA，从而享受到“最新的IDE更新”带来的好处。这一JetBrains FAQ页面更详细地解释了从Eclipse向基于IntelliJ IDEA的IDE迁移时的相关问题。
+
+Android Studio基于IntelliJ社区版，1.0版本带来了如下主要特性：
+
+- 首次运行设置向导，可以设置正确的Android SDK和开发环境，同时会创建一个优化的模拟器和一组代码模板
+- 包括IntelliJ IDEA所提供的所有代码编辑工具
+- 动态布局预览（Dynamic Layout Preview），支持开发者通过拖拽来查看和编辑其移动应用在多个设备、多个API版本上的表现
+- 内存性能监控（Memory performance monitor）
+- 集成了基于Gradle的构建系统，Android Studio更新不会影响构建
+- 构建系统可以为调试/发布、免费/付费版本生成多个APK
+- 集成了Google Cloud Platform
+- 用于处理性能、可用性、版本兼容等问题的Lint工具
+- ProGuard和应用签名功能
+
+Android Studio采用了Chrome的发布模式，提供了Stable、Beta、Dev和Canary等4个通道，开发者可以选择提前体验新特性。官网提供了支持Windows 8/7/Vista/2003 32位或64位、Mac OS X 10.8.5-10.9和Linux的版本。该指南可以引导开发者学习Android Studio，其中包括了按照说明、主要特性、使用、技巧等内容
+
+
 ## Keymap
 
 常用快捷键

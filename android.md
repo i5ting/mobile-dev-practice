@@ -210,6 +210,54 @@ Total time: 16 mins 29.847 secs
 
 
 
+https://bintray.com/是The fastest and most reliable way to automate the distribution of your software releases
+
+有点意思
+
+
+gradlew实际上是https://github.com/bintray/gradle-resolver
+
+gradlew + maven 参考https://github.com/bintray/gradle-bintray-plugin
+
+
+Android 任务
+
+通用任务
+
+将一个plugin运用到build file中时，会自动创建一系列的构建任务（build task）去运行。Java plugin和Android Plugin也都会如此。
+
+我们对于任务的约定有以下四个：
+
+- assemble任务，汇集所有项目输出     
+- check任务，运行所有校验
+- build任务，既汇集又校验        
+- clean任务，清除所有项目输出
+
+assemble, check and build任务自己本身不做任何事情，它们只是plugin锚点，真正任务的是由plugin来添加执行。
+
+这样做的好处是，不管你在什么项目中，你都可以调用同样的命令来执行。
+
+通过命令行，你可以得到更高级别的任务，命令如下：
+
+	gradle tasks
+
+Android的任务比通用的四大任务多了“connectedCheck”和“deviceCheck”，这是想要让项目忽视设备是否连接，正常执行check任务。
+
+- assemble任务，  汇集所有项目输出
+- check任务，运行所有校验
+- connectedCheck任务，运行所有需要链接设备或模拟器的校验, 并行运行
+- deviceCheck任务，运行调用远程设备的校验，运用于CI Servers
+- build任务，既汇集又校验
+- clean任务，清除所有项目输出
+
+注：build任务不依赖与deviceCheck或connectedCheck
+
+more
+
+- https://github.com/JFrogDev/build-info
+- 【Sample projects for training and testing CI setup with Artifactory】https://github.com/JFrogDev/project-examples
+
+
 ## 安装驱动
 
 我的设备是三星的s5，所以安装Kies for mac。
