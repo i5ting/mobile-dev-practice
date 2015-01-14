@@ -101,3 +101,7 @@ http://zhidao.baidu.com/link?url=zAKtzY_Joi6yXB0sxVHYdZEPdhTVeZLq8E5rymhkBG0zSbW
 答案：AndroidBarActivity是支持库里的类可以兼容2.x版本 activity提供的actionbar只有在3.0以上才可以用
 
 
+## Resource
+
+- http://romannurik.github.io/AndroidAssetStudio/index.html
+

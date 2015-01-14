@@ -109,3 +109,14 @@ adb --help
 View -> Active Editor -> Show Line Numbers
 ```
 
+
+
+adb
+
+zygote 受精卵
+
+
+饭否开源了
+
+
+http://romannurik.github.io/AndroidAssetStudio/index.html
