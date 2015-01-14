@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IntentDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_world2">Hello world 2!</string>
+    <string name="action_settings">跳转到第二个</string>
+    <string name="title_activity_second">SecondActivity</string>
+
+</resources>
