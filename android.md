@@ -1,5 +1,10 @@
 # Android
 
+android编程，2本书足矣：第一行代码 + 编程实战。
+
+- 第一行代码：深入浅出，适合新人
+- 编程实战：有深度，有难度，而且内容全面，较新，使用android studio
+
 ## 准备
 
 下载android studio
@@ -44,6 +49,12 @@ cp -rf $GRADLE_HOME/* ~/.gradle/wrapper/dists
 
 臆测，需测试。
 
+
+```
+./gradlew --help
+```
+
+如果没有安装过gradle，他就会下载的
 
 ## 安装驱动
 

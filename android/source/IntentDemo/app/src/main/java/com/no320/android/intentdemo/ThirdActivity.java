@@ -12,22 +12,21 @@ import android.view.Window;
 import android.widget.Button;
 
 
-public class SecondActivity extends Activity {
+public class ThirdActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_third);
 
-        Button web = (Button)findViewById(R.id.button);
+        Button web = (Button)findViewById(R.id.button2);
 
         web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.baidu.com"));
+                intent.setData(Uri.parse("tel:12306"));
                 startActivity(intent);
             }
         });
@@ -37,7 +36,7 @@ public class SecondActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_second, menu);
+        getMenuInflater().inflate(R.menu.menu_third, menu);
         return true;
     }
 
@@ -50,9 +49,6 @@ public class SecondActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
-            startActivity(intent);
-
             return true;
         }
 
