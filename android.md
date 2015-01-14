@@ -56,6 +56,155 @@ cp -rf $GRADLE_HOME/* ~/.gradle/wrapper/dists
 
 如果没有安装过gradle，他就会下载的
 
+
+```
+➜  IntentDemo git:(master) ✗ ./gradlew --help
+Downloading https://services.gradle.org/distributions/gradle-2.2.1-all.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /Users/sang/.gradle/wrapper/dists/gradle-2.2.1-all/6dibv5rcnnqlfbq9klf8imrndn/gradle-2.2.1-all.zip to /Users/sang/.gradle/wrapper/dists/gradle-2.2.1-all/6dibv5rcnnqlfbq9klf8imrndn
+Set executable permissions for: /Users/sang/.gradle/wrapper/dists/gradle-2.2.1-all/6dibv5rcnnqlfbq9klf8imrndn/gradle-2.2.1/bin/gradle
+
+USAGE: gradlew [option...] [task...]
+
+-?, -h, --help          Shows this help message.
+-a, --no-rebuild        Do not rebuild project dependencies.
+-b, --build-file        Specifies the build file.
+-c, --settings-file     Specifies the settings file.
+--configure-on-demand   Only relevant projects are configured in this build run. This means faster build for large multi-project builds. [incubating]
+--continue              Continues task execution after a task failure.
+-D, --system-prop       Set system property of the JVM (e.g. -Dmyprop=myvalue).
+-d, --debug             Log in debug mode (includes normal stacktrace).
+--daemon                Uses the Gradle daemon to run the build. Starts the daemon if not running.
+--foreground            Starts the Gradle daemon in the foreground. [incubating]
+-g, --gradle-user-home  Specifies the gradle user home directory.
+--gui                   Launches the Gradle GUI.
+-I, --init-script       Specifies an initialization script.
+-i, --info              Set log level to info.
+-m, --dry-run           Runs the builds with all task actions disabled.
+--no-color              Do not use color in the console output.
+--no-daemon             Do not use the Gradle daemon to run the build.
+--offline               The build should operate without accessing network resources.
+-P, --project-prop      Set project property for the build script (e.g. -Pmyprop=myvalue).
+-p, --project-dir       Specifies the start directory for Gradle. Defaults to current directory.
+--parallel              Build projects in parallel. Gradle will attempt to determine the optimal number of executor threads to use. [incubating]
+--parallel-threads      Build projects in parallel, using the specified number of executor threads. [incubating]
+--profile               Profiles build execution time and generates a report in the <build_dir>/reports/profile directory.
+--project-cache-dir     Specifies the project-specific cache directory. Defaults to .gradle in the root project directory.
+-q, --quiet             Log errors only.
+--recompile-scripts     Force build script recompiling.
+--refresh-dependencies  Refresh the state of dependencies.
+--rerun-tasks           Ignore previously cached task results.
+-S, --full-stacktrace   Print out the full (very verbose) stacktrace for all exceptions.
+-s, --stacktrace        Print out the stacktrace for all exceptions.
+--stop                  Stops the Gradle daemon if it is running.
+-u, --no-search-upward  Don't search in parent folders for a settings.gradle file.
+-v, --version           Print version info.
+-x, --exclude-task      Specify a task to be excluded from execution.
+
+➜  IntentDemo git:(master) ./gradlew tasks
+> Configuring > 0/2 projects > root project
+Download https://jcenter.bintray.com/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar
+Download https://jcenter.bintray.com/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar
+Download https://jcenter.bintray.com/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0.jar
+Download https://jcenter.bintray.com/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar
+> Configuring > 0/2 projects > root project > 2.06 MB/2.21 MB downloaded
+Download https://jcenter.bintray.com/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar
+Download https://jcenter.bintray.com/com/android/tools/common/24.0.0/common-24.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar
+Download https://jcenter.bintray.com/com/android/tools/sdklib/24.0.0/sdklib-24.0.0.jar
+Download https://jcenter.bintray.com/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar
+Download https://jcenter.bintray.com/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0.jar
+Download https://jcenter.bintray.com/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.jar
+Download https://jcenter.bintray.com/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.jar
+Download https://jcenter.bintray.com/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar
+Download https://jcenter.bintray.com/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar
+Download https://jcenter.bintray.com/com/android/tools/dvlib/24.0.0/dvlib-24.0.0.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar
+Download https://jcenter.bintray.com/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.4/commons-codec-1.4.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm/4.0/asm-4.0.jar
+Download https://jcenter.bintray.com/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+Android tasks
+-------------
+androidDependencies - Displays the Android dependencies of the project
+signingReport - Displays the signing info for each variant
+
+Build tasks
+-----------
+assemble - Assembles all variants of all applications and secondary packages.
+assembleDebug - Assembles all Debug builds
+assembleDebugTest - Assembles the Test build for the Debug build
+assembleRelease - Assembles all Release builds
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+clean - Deletes the build directory.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build. [incubating]
+wrapper - Generates Gradle wrapper files. [incubating]
+
+Help tasks
+----------
+components - Displays the components produced by root project 'IntentDemo'. [incubating]
+dependencies - Displays all dependencies declared in root project 'IntentDemo'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'IntentDemo'.
+help - Displays a help message.
+projects - Displays the sub-projects of root project 'IntentDemo'.
+properties - Displays the properties of root project 'IntentDemo'.
+tasks - Displays the tasks runnable from root project 'IntentDemo' (some of the displayed tasks may belong to subprojects).
+
+Install tasks
+-------------
+installDebug - Installs the Debug build
+installDebugTest - Installs the Test build for the Debug build
+uninstallAll - Uninstall all applications.
+uninstallDebug - Uninstalls the Debug build
+uninstallDebugTest - Uninstalls the Test build for the Debug build
+uninstallRelease - Uninstalls the Release build
+
+Verification tasks
+------------------
+check - Runs all checks.
+connectedAndroidTest - Installs and runs the tests for Build 'debug' on connected devices.
+connectedCheck - Runs all device checks on currently connected devices.
+deviceCheck - Runs all device checks using Device Providers and Test Servers.
+lint - Runs lint on all variants.
+lintDebug - Runs lint on the Debug build
+lintRelease - Runs lint on the Release build
+
+Other tasks
+-----------
+compileDebugSources
+compileDebugTestSources
+compileReleaseSources
+
+To see all tasks and more detail, run with --all.
+
+BUILD SUCCESSFUL
+
+Total time: 16 mins 29.847 secs
+```
+
+
 ## 安装驱动
 
 我的设备是三星的s5，所以安装Kies for mac。
