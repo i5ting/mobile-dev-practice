@@ -205,6 +205,11 @@ Total time: 16 mins 29.847 secs
 ```
 
 
+
+./gradlew build
+
+
+
 ## 安装驱动
 
 我的设备是三星的s5，所以安装Kies for mac。
