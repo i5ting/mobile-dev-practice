@@ -41,6 +41,11 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_close) {
+            finish();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
