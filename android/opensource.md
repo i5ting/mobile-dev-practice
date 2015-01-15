@@ -2,6 +2,9 @@
 
 - https://github.com/fanfoudroid/fanfoudroid 饭否客户端
 
+## utils lib
+
+- https://github.com/SnowdreamFramework/android-downloader
 
 ## db or  orm 
 
@@ -9,4 +12,4 @@
 
 ## intellij-community source
 
-- https://github.com/JetBrains/intellij-community
+-https://github.com/JetBrains/intellij-community
