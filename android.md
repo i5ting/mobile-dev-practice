@@ -30,6 +30,7 @@ export ANDROID_SDK_HOME=/Users/sang/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_HOME/tools
 export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
 export PATH=$PATH:$ANDROID_SDK_HOME/build-tools/21.1.2
+export PATH=$PATH:/Users/sang/bin/android-ndk-r10d
 ```
 
 ### 安装Gradle
