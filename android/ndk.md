@@ -13,7 +13,8 @@ export PATH=$PATH:/Users/sang/bin/android-ndk-r10d
 
 ## 文档
 
-docs/Getting_Started/html/index.html
+- 入门docs/Getting_Started/html/index.html
+- 指南docs/Programmers_Guide
 
 
 ## 示例
