@@ -101,6 +101,7 @@ Db
 
 - 推送
 - 上线
+- scala(scala-lang.org) && sbt(https://github.com/sbt/sbt)
 - jni/c/other语言：lua，mruby等
 - 内购
 - 地图
