@@ -91,6 +91,10 @@ Db
 ## 测试
 
 - JUnit
+- TestNG
+
+测试工具
+
 - Monkey/MonkeyRunner
 
 ## 其他
