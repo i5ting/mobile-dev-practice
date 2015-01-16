@@ -1,6 +1,6 @@
 # android-overview
 
-## 基础
+# 基础
 
 - java基础
 - dalvik编译，以及zypote受精卵
@@ -24,7 +24,8 @@
 
 - adb
 
-## 组件ASBC
+# 3大部分
+## 1. 组件ASBC
 
 ### A
 
@@ -48,28 +49,52 @@
 
 - broadcastReceiver
 
+有3种场景
+
+- 1：n
+- 接力
+- 本地
+
+另外需要比较广播VS通知VS推送
+
+通知是Notification
+
 ### C
 
 - content provider
-	- 文件
-	- 序列号
-	- SharePreffence
-	- DB
-	
-	
-Db
 
-- sqlite
-- greendao
+跨应用共享数据
 
+## 2. Manifest 应用程序清单
 
-
-## Manifest 应用程序清单
-
-## 资源
+## 3. 资源
 
 - resources
 - assets
+
+
+# 总结归类
+
+## 万事万物皆意图
+
+intent 就是传输队长，传输消息和数据
+
+- 显式
+- 隐式
+- activity
+- broadcast
+- content provider
+- 多媒体
+- service
+
+## Cache
+
+- 文件读写io
+- SharedPreffences键值对
+- db（默认是sqlite）
+	- sqlite
+	- greendao
+- content provider
 
 ## 多线程
 
@@ -88,6 +113,14 @@ Db
 - Binder
 - ADIL
 
+
+## 消息相关
+
+- 广播
+- 通知 
+- 推送
+- 观察者模式
+
 ## 测试
 
 - JUnit
@@ -96,6 +129,7 @@ Db
 测试工具
 
 - Monkey/MonkeyRunner
+
 
 ## 其他
 
@@ -107,7 +141,7 @@ Db
 - 地图
 
 
-## Best Practice
+# Best Practice
 
 - gradle构建
 - jenkins做CI
