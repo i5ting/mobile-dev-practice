@@ -140,3 +140,8 @@ zygote 受精卵
 
 
 http://romannurik.github.io/AndroidAssetStudio/index.html
+
+## Building Android applications with Gradle - Tutorial
+
+
+http://www.vogella.com/tutorials/AndroidBuild/article.html
