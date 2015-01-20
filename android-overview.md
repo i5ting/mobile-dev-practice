@@ -106,6 +106,7 @@ intent 就是传输队长，传输消息和数据
 
 - HttpUrlConnection
 - HttpClient
+- AsyncHttpClient
 - Volley（新，荐，未来可能标准）
 
 ## IPC
