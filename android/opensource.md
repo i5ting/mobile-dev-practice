@@ -13,3 +13,12 @@
 ## intellij-community source
 
 -https://github.com/JetBrains/intellij-community
+
+
+https://github.com/Trinea/android-open-project
+
+
+http://stormzhang.com/android/2014/07/07/learn-android-from-rookie/
+
+
+http://developer.android.com/guide/index.html
