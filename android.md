@@ -341,3 +341,330 @@ http://blog.csdn.net/t12x3456/article/details/40837287
 打包使用的脚本
 
  https://github.com/welenwho/android-packaging-tool
+ 
+ 
+## sqlite3
+
+先输su
+出现#后
+输入
+
+mount -o rw,remount /system
+
+必须在root权限下才能挂载系统分区读写
+
+在Android开发中，使用 adb shell 下的 sqlite3 命令来查看操作SQLite数据库时，遇到了 [ sqlite3 : not found] 问题。
+网上找了下问题的原因——模拟器或真机中的 /system/xbin 目录下少了sqlite3 这个文件。
+ 
+解决方法，步骤如下：
+
+（1）让/system文件夹可读写
+
+  # su
+  # mount -o remount,rw -t yaffs2 /dev/block/mtdblock3 /system
+  # chmod 777 xbin
+ 
+（2）导入所需的sqlite3文件到/system/xbin目录。
+（可以新建个模拟器，从/system/xbin中导出sqlite3，即可得到sqlite3文件;或者从另外一个有sqlite3文件的机器中导出获得）
+
+  # adb push sqlite3 /system/xbin
+  
+
+  4030 KB/s (78436 bytes in 0.019s)
+ 
+（3）修改 sqlite3 权限
+  
+  # chmod 4755 /system/xbin/sqlite3
+
+（4）设置 /system为只读文件 
+
+  # mount -o remount,ro -t yaffs2 /dev/block/mtdblock3 /system
+
+
+（5）至此，就可以使用 sqlite3 命令来操作 SQLite 数据库了。
+
+
+## copy for 模拟器
+
+```
+adb pull /system/xbin/add-property-tag
+adb pull /system/xbin/check-lost+found
+adb pull /system/xbin/cpueater
+adb pull /system/xbin/cpustats
+adb pull /system/xbin/daemonize
+adb pull /system/xbin/dexdump
+adb pull /system/xbin/directiotest
+adb pull /system/xbin/iperf3
+adb pull /system/xbin/kexecload
+adb pull /system/xbin/ksminfo
+adb pull /system/xbin/latencytop
+adb pull /system/xbin/librank
+adb pull /system/xbin/memtrack
+adb pull /system/xbin/memtrack_share
+adb pull /system/xbin/micro_bench
+adb pull /system/xbin/micro_bench_static
+adb pull /system/xbin/nc
+adb pull /system/xbin/netperf
+adb pull /system/xbin/netserver
+adb pull /system/xbin/procmem
+adb pull /system/xbin/procrank
+adb pull /system/xbin/puncture_fs
+adb pull /system/xbin/rawbu
+adb pull /system/xbin/sane_schedstat
+adb pull /system/xbin/showmap
+adb pull /system/xbin/showslab
+adb pull /system/xbin/sqlite3
+adb pull /system/xbin/strace
+adb pull /system/xbin/su
+adb pull /system/xbin/taskstats
+adb pull /system/xbin/tcpdump
+adb pull /system/xbin/timeinfo
+```
+
+对于真机是没有用的
+
+
+
+
+sqlite3 /data/data/com.example.sang.helloworld/databases/test.db
+
+
+## 下载数据库
+
+adb shell
+su
+chmod 777 /data/data/com.example.sang.helloworld/databases/*
+adb pull /data/data/com.example.sang.helloworld/databases/test.db
+
+
+## log sqlite
+
+http://angeldevil.me/2014/07/24/Android-SQLite-Debug/
+
+调试SQLite的神器，再也不用自己去打Log了，只需简单的几个命令。
+
+adb shell setprop log.tag.SQLiteLog V
+adb shell setprop log.tag.SQLiteStatements V
+adb shell stop
+adb shell start
+
+
+结果如下所示
+
+V/SQLiteStatements( 4405): /data/data/[package]/databases/[db_name].db: "UPDATE [table_name] SET state=-1 WHERE note_id='7556'"
+
+
+想关闭Log也很简单，把上面代码中的V改为""就行了
+
+说明在源码SQLiteDebug.java中
+
+
+## 推荐sqlite editor
+
+如果能够http可以下载就最好了
+
+## sqlite-unique-constraint-syntax-multiple-columns-fields
+
+http://alvinalexander.com/android/sqlite-unique-constraint-syntax-multiple-columns-fields
+
+
+## 单例
+http://www.androiddesignpatterns.com/2012/05/correctly-managing-your-sqlite-database.html
+
+
+
+## 修改快捷键
+
+- favorite是command + 2
+- structure是command + 7
+
+不方便阿，所以还是需要改过来
+
+
+
+## 设置背景色
+
+法2（推荐）
+
+viewHolder.relativeLayout
+					.setBackgroundResource(R.color.select_city_child_bg);
+          
+法1
+
+.setBackgroundResource(Color.parseColor("#121321"));
+
+
+
+## 最简单也最难——如何获取到Android控件的高度
+
+http://www.2cto.com/kf/201410/341592.html
+
+
+问题
+
+如何获取一个控件的长和高，相信很多朋友第一眼看见这个问题都会觉得很简单，直接在onCreate里面调用getWidth、getMeasuredWidth不就可以获得了吗，但是，事实上是并没有简单的，不信的话，你可以去试一下，在onCreate里面，你是无法获得长宽值的，始终为0。
+
+原因
+
+这是为什么呢，其实熟悉view绘制流程的朋友应该一眼就看出来了，在onCreate中，我们的控件其实还并没有画好，换句话说，等onCreate方法执行完了，我们定义的控件才会被度量(measure)，所以我们在onCreate方法里面通过view.getHeight()获取控件的高度或者宽度肯定是0。
+
+解决
+
+No1：
+
+```
+int w = View.MeasureSpec.makeMeasureSpec(0,
+                View.MeasureSpec.UNSPECIFIED);
+        int h = View.MeasureSpec.makeMeasureSpec(0,
+                View.MeasureSpec.UNSPECIFIED);
+        imageView.measure(w, h);
+        int height = imageView.getMeasuredHeight();
+        int width = imageView.getMeasuredWidth();
+```
+
+
+这种方法很简单，就是我们自己来测量
+
+
+No2：
+
+```
+ViewTreeObserver vto = imageView.getViewTreeObserver(); 
+        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { 
+            public boolean onPreDraw() { 
+                vto.removeOnPreDrawListener(this);
+                int height = imageView.getMeasuredHeight(); 
+                int width = imageView.getMeasuredWidth(); 
+                return true; 
+            } 
+        });
+```
+
+这个方法，我们需要注册一个ViewTreeObserver的监听回调，这个监听回调，就是专门监听绘图的，既然是监听绘图，那么我们自然可以获取测量值了，同时，我们在每次监听前remove前一次的监听，避免重复监听。
+
+
+
+No3：
+
+```
+ViewTreeObserver vto = imageView.getViewTreeObserver();   
+vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() { 
+    @Override  
+    public void onGlobalLayout() { 
+        imageView.getViewTreeObserver().removeGlobalOnLayoutListener(this); 
+        imageView.getHeight();
+        imageView.getWidth();
+    }   
+});
+```
+
+这个方法于第2个方法基本相同，但他是全局的布局改变监听器，所以是最推荐使用的。
+
+
+OK，现在看来，看似简单问题也不是那么简单吧。
+
+以上。
+
+
+
+## Android fill_parent、wrap_content和match_parent的区别
+
+ 三个属性都用来适应视图的水平或垂直大小，一个以视图的内容或尺寸为基础的布局比精确地指定视图范围更加方便。
+1）fill_parent
+设置一个构件的布局为fill_parent将强制性地使构件扩展，以填充布局单元内尽可能多的空间。这跟Windows控件的dockstyle属性大体一致。设置一个顶部布局或控件为fill_parent将强制性让它布满整个屏幕。
+
+2） wrap_content
+设置一个视图的尺寸为wrap_content将强制性地使视图扩展以显示全部内容。以TextView和ImageView控件为例，设置为wrap_content将完整显示其内部的文本和图像。布局元素将根据内容更改大小。设置一个视图的尺寸为wrap_content大体等同于设置Windows控件的Autosize属性为True。
+
+3）match_parent
+   Android2.2中match_parent和fill_parent是一个意思 .两个参数意思一样，match_parent更贴切，于是从2.2开始两个词都可以用。那么如果考虑低版本的使用情况你就需要用fill_parent了
+   
+## android开发设置ExpandableListView 默认是展开的
+
+先实例化 exListView
+然后
+     exListView.setAdapter(exlvAdapter);
+     //将所有项设置成默认展开
+     int groupCount = exListView.getCount();
+     for (int i=0; i< groupCount; i++) {
+         exListView.expandGroup(i);
+    };
+
+       
+## android之回调函数的用法和意义
+
+http://blog.csdn.net/jason0539/article/details/10168899
+
+
+CallBack是回调的意思，一般称之为回调函数
+
+百科的解释:http://baike.baidu.com/link?url=8yMUwVEFRzxR4JGMxVN_UnFgJIH4WTnsybuW5NfwgKqVKP8NtShfJnNNeY9mBzRT
+
+用一个比较形象的例子:
+
+你饿了,想吃饭,就一会去问你妈一声"开饭没有啊?"
+
+这就是正常函数调用.
+但是今天你妈包饺子,花的时间比较长,你跑啊跑啊,就烦了.于是你给你妈说,我先出去玩会,开饭的时候打我手机.
+
+等过了一阵,你妈给你打电话说"开饭啦,回来吃饭吧!"
+其中,你告诉你妈打手机找你,就是你把回调函数句柄保存到你妈的动作.你妈打电话叫你,就是个回调过程.
+
+下面用一个Android中应用到"回调"的场景,来进一步解释。
+
+```
+Button button = (Button)this.findViewById(R.id.button);
+button.setOnClickListener(new Button.OnClickListener() {
+
+  //回调函数
+  @override
+  publicvoid onClick(View v) {
+    buttonTextView.setText("按钮被点击了");
+  }
+});
+
+```
+
+
+
+##  Android 获取屏幕尺寸与密度
+
+http://blog.csdn.net/ithomer/article/details/6688883
+
+```
+int screenWidth  = getWindowManager().getDefaultDisplay().getWidth();       // 屏幕宽（像素，如：480px） 
+int screenHeight = getWindowManager().getDefaultDisplay().getHeight();      // 屏幕高（像素，如：800p）  
+```
+
+## dp2px
+
+http://www.baidu.com/link?url=uQ2p6Gi8Ir5Ht-5cPkF_iuSFH7C4weg-SAqWMpejBfo0Yga5ORVWJa7riTGtCwNxgEGh1gzWTvGe5OBxFNprs_
+
+   public int Dp2Px(Context context, float dp) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
+    }
+
+    public int Px2Dp(Context context, float px) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (px / scale + 0.5f);
+    }
+
+## 动态设置GridView高度 
+
+GridView mGrid= (GridView) findViewById(R.id.gridview); 
+LinearLayout.LayoutParams linearParams = (LinearLayout.LayoutParams) mGrid.getLayoutParams(); // 取控件mGrid当前的布局参数
+linearParams.height = 75;// 当控件的高强制设成75象素
+mGrid.setLayoutParams(linearParams); // 使设置好的布局参数应用到控件mGrid2
+
+## Android：Button同时设置OnLongClick、OnClick模拟相机长按聚焦 短按拍照的功能
+
+问题背景：一个Button同时设置了OnLongClick和OnClick监听。达到相机拍照，第一次长按聚焦，第二次点击拍照的效果。OnLongClick是由单独的线程执行的，如果返回false，则OnLongClick执行完毕后，会自动执行OnClick。
+如果设置返回true，则OnLongClick触发执行完后便不会再执行OnClick了，这正要我要达到的效果。
+
+参考：http://www.cnblogs.com/Tiger-Dog/articles/1944791.html
+
+## 自定义手势
+
+http://www.2cto.com/kf/201310/253280.html
+

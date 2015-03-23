@@ -22,3 +22,10 @@ http://stormzhang.com/android/2014/07/07/learn-android-from-rookie/
 
 
 http://developer.android.com/guide/index.html
+
+
+
+
+切换su用户权限
+
+- https://github.com/Chainfire/libsuperuser
