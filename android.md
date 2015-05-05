@@ -668,3 +668,74 @@ mGrid.setLayoutParams(linearParams); // 使设置好的布局参数应用到控�
 
 http://www.2cto.com/kf/201310/253280.html
 
+
+
+## aar
+
+The 'aar' bundle is the binary distribution of an Android Library Project. 
+
+http://tools.android.com/tech-docs/new-build-system/aar-format
+
+
+## no android facet found
+
+
+Add an android facet to your module by following below steps.
+
+1) Go To File Menu -> Project Structure, or press (Ctrl+Alt+Shift+S) shortcut to open "Project Structure".
+
+2) Select "Facets" which is under the "Project Settings" tab. (First column)
+
+3) Click on "+" button which is at the top of the Second Column to add new facets.
+
+4) Select "Android" facet from that "Add "menu which will prompt another dialog box to select a module. (Select a module to which you want to apply this facet).
+
+5) Select your module and that's it. :)
+
+##  Android studio AIDL 编译问题处理
+
+Android Studio  自动生成AIDL文件 在 main/aidl目录下，与java目录同级，但是Android Studio编译是会找不到此文件，从而无法再Active中引用，需手工复制AIDL文件到 src/main/java/com..../目录下系统才会自动编译文件并生成相应的Java类。
+
+## Service和Activity中不能显示Toast
+
+http://www.eoeandroid.com/thread-66465-1-1.html
+
+前几次碰到这个问题，确实郁闷了很久... log -- java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
+
+解决办法很简单：
+        Looper.prepare();
+
+Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
+
+Looper.loop();
+
+## java-to-scala.html
+
+http://lampwww.epfl.ch/~michelou/android/java-to-scala.html
+
+
+## android sdk 里还藏有m2repository
+
+    <repository>
+        <id>android-support</id>
+        <url>file://${env.ANDROID_HOME}/extras/android/m2repository</url>
+    </repository>
+    
+有意思啊有意思
+
+
+## PANIC: Could not find test.ini file in $ANDROID_AVD_HOME nor in $HOME/.android/avd
+
+http://bbs.csdn.net/topics/390952635
+
+导出ANDROID_AVD_HOME环境变量：
+
+1. Windows中增加一个名为ANDROID_AVD_HOME指向%USERPROFILE%\.android\avd
+    set ANDROID_AVD_HOME=%USERPROFILE%\.android\avd
+2.Linux中增加一个名为ANDROID_AVD_HOME指向$HOME/.android/avd
+    export ANDROID_AVD_HOME=$HOME/.android/avd
+3.Macosx中增加一个名为ANDROID_AVD_HOME指向$HOME/.android/avd
+    export ANDROID_AVD_HOME=$HOME/.android/avd
+
+重启Eclipse/Android studio
+
